@@ -1,0 +1,1 @@
+# go_dependency_easyjson
