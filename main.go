@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+
+	"github.com/mailru/easyjson/buffer"
 )
 
 //go:generate easyjson -all main.go
@@ -43,6 +45,11 @@ func main() {
 	}
 
 	fmt.Printf("Unmarshaled: %+v\n", newPerson)
+
+	// Using easyjson's Buffer
+	buf := buffer.Buffer{}
+	buf.AppendString(`{"name":"Jane Doe","age":28}`)
+	fmt.Println("EasyJSON Buffer content:", string(buf.BuildBytes()))
 
 	// Call placeholder function
 	DemoEasyJSONUsage()
